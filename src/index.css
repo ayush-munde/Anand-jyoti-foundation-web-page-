@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@keyframes slideDown {
+  from {
+    
+    transform: translateY(-20px);
+  }
+
+  to {
+   
+    transform: translateY(0);
+  }
+}
+
+@keyframes downup {
+    0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.slide-down {
+  animation: slideDown 0.4s ease-out forwards;
+}
+.down-up {
+  animation: downup 2s ease-out infinite;
+}
