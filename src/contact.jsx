@@ -6,6 +6,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
+import {detail} from "./detail.js";
 export function Contact({contact}){
   return(
     <>
@@ -31,4 +32,31 @@ export function Contact({contact}){
 
     </>
   )
+}
+
+export function LearnMore({ selectedCard, onClose ,icon}) {
+  if (!selectedCard) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black/40 flex items-center  justify-center">
+      <div className="bg-white p-3 lg:p-6 rounded-xl justify-center w-[300px] lg:w-[500px] relative">
+
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3"
+        >
+          ✖
+        </button>
+
+
+        <h2 className="text-xl flex  justify-center gap-3  font-bold "><a className="self-center">{icon }</a>{detail[selectedCard].title}</h2>
+
+        <ul className="list-disc list-inside mt-4 text-gray-700">
+          {detail[selectedCard].points.map((point, index) => (
+            <li key={index}>{point}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 }
